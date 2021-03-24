@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>User Page</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2" border="1">
+                <h:outputLabel value="Username" />
+                <h:inputText value="#{userBean.username}" />
+                 <h:outputLabel value="Password" />
+                 <h:inputText value="#{userBean.password}" />
+                 <hr/>
+                 <h:commandButton value="Add User" action="#{userBean.addUser()}"></h:commandButton> ||
+                 <h:commandButton value="Update User" action="#{userBean.updateUser}"></h:commandButton> ||
+                 <h:commandButton value="Delete User" action="#{userBean.deleteUser()}"></h:commandButton> ||
+                 <h:commandButton value="Refresh" action="#{userBean.refresh()}"></h:commandButton>
+                 <hr/>
+                 <h:dataTable value="#{userBean.userlist}" var="items">
+                     <h:column>
+                         <f:facet name="header">username</f:facet>
+                         #{items.username}
+                     </h:column>
+                        <h:column>
+                         <f:facet name="header">password</f:facet>
+                         #{items.password}
+                     </h:column>
+                 </h:dataTable>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
